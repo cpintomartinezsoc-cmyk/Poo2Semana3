@@ -271,7 +271,7 @@ Esto permite que diferentes clases puedan compartir determinados comportamientos
 
 # ▶️ Instrucciones para ejecutar el proyecto
 
-1. **Clonar el repositorio desde GitHub.**
+1. **Clonar el repositorio desde GitHub.** https://github.com/cpintomartinezsoc-cmyk/Poo2Sumativa1.git
 2. **Abrir el proyecto en IntelliJ IDEA.**
 3. Verificar que todas las clases se encuentren organizadas en sus respectivos paquetes.
 4. Ejecutar la clase:
@@ -292,7 +292,7 @@ cl.duoc.app.Main
 **Repositorio:** `POO2ActividadS2`
 
 **URL:**
-https://github.com/cpintomartinezsoc-cmyk/Poo2Actividad2.git
+https://github.com/cpintomartinezsoc-cmyk/Poo2Sumativa1.git
 
 **Fecha de entrega:** 31/08/2026
 
