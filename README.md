@@ -293,7 +293,7 @@ cl.duoc.app.Main
 
 # 🔗 Repositorio GitHub
 
-**Repositorio:** `POO2ActividadS2`
+**Repositorio:** `POO2Sumativa1`
 
 **URL:**
 https://github.com/cpintomartinezsoc-cmyk/Poo2Sumativa1.git
