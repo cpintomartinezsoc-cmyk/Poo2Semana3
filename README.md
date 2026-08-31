@@ -2,10 +2,10 @@
 
 # 🧠 Actividad Formativa – Implementando clases abstractas, polimorfismo e interfaces 👤
 
-**Nombre completo:** Camilo Pinto
-**Carrera:** Analista Programador
-**Asignatura:** Desarrollo Orientado a Objetos II
-**Caso:** SpeedFast
+**Nombre completo: Camilo Pinto**
+**Carrera: Analista Programador**
+**Asignatura: Desarrollo Orientado a Objetos II**
+**Caso: SpeedFast**
 
 ---
 
