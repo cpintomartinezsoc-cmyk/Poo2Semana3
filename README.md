@@ -41,7 +41,7 @@ Compra Express: compras de supermercado o farmacia.
 
 Cada tipo de pedido posee una lógica diferente para calcular su tiempo estimado de entrega.
 
-Además, el sistema incorpora interfaces para representar comportamientos específicos que pueden realizar los pedidos, como ser despachados, cancelados y rastreados.
+Además, se incorporan interfaces que permiten definir comportamientos específicos relacionados con el despacho, cancelación y rastreo de los pedidos.
 
 🧱 Estructura del proyecto
 
@@ -65,18 +65,14 @@ src/
 └── cl.duoc.app/
     │
     └── Main.java
-
-svg
-
 📂 Descripción de las clases 📦
 📦 Pedido
 
 Clase abstracta que representa un pedido genérico de SpeedFast.
 
-Esta clase contiene la información común que poseen todos los tipos de pedidos y establece el comportamiento que deben implementar sus clases derivadas.
+Esta clase contiene la información común que poseen todos los tipos de pedidos y establece los comportamientos que deben implementar sus clases derivadas.
 
-Atributos:
-
+Atributos
 idPedido
 direccionEntrega
 distanciaKm
@@ -84,7 +80,7 @@ tipoPedido
 
 Los atributos utilizan el modificador protected, permitiendo que las clases hijas puedan acceder directamente a ellos.
 
-La clase Pedido también establece el método abstracto calcularTiempoEntrega(), permitiendo que cada tipo de pedido implemente su propia lógica.
+La clase Pedido también contiene el método abstracto calcularTiempoEntrega(), permitiendo que cada tipo de pedido implemente su propia lógica de cálculo.
 
 🍔 PedidoComida
 
@@ -92,7 +88,7 @@ Clase que hereda de Pedido mediante extends.
 
 Representa los pedidos provenientes de restaurantes.
 
-Esta clase sobrescribe el método calcularTiempoEntrega() para establecer la lógica correspondiente al tiempo estimado de entrega de los pedidos de comida.
+Esta clase sobrescribe el método calcularTiempoEntrega() utilizando @Override, estableciendo la lógica correspondiente al tiempo estimado de entrega de los pedidos de comida.
 
 📦 PedidoEncomienda
 
@@ -100,7 +96,7 @@ Clase que hereda de Pedido mediante extends.
 
 Representa documentos o paquetes que deben ser entregados mediante el servicio de encomiendas.
 
-Esta clase sobrescribe el método calcularTiempoEntrega() para establecer la lógica correspondiente a las encomiendas.
+Esta clase sobrescribe el método calcularTiempoEntrega() utilizando @Override, estableciendo la lógica correspondiente al tiempo estimado de entrega de una encomienda.
 
 🛒 PedidoExpress
 
@@ -108,23 +104,27 @@ Clase que hereda de Pedido mediante extends.
 
 Representa las compras realizadas mediante el servicio de Compras Express, como compras de supermercado o farmacia.
 
-Esta clase sobrescribe el método calcularTiempoEntrega() para establecer la lógica correspondiente a este tipo de pedido.
+Esta clase sobrescribe el método calcularTiempoEntrega() utilizando @Override, estableciendo la lógica correspondiente al tiempo estimado de entrega de este tipo de pedido.
 
 🔌 Interfaces
 
-Las interfaces se encuentran dentro del paquete Interfaz.
+Las interfaces se encuentran dentro del paquete cl.duoc.Interfaz.
 
-Estas permiten definir comportamientos específicos que pueden ser implementados por las clases de pedidos.
+Estas permiten definir comportamientos específicos que pueden ser implementados por las diferentes clases de pedidos.
 
-El uso de interfaces permite separar el comportamiento de las características propias de cada pedido y facilita la aplicación del polimorfismo.
+En este proyecto se utilizan tres interfaces:
+
+Despachable
+Cancelable
+Rastreable
+
+El uso de interfaces permite separar determinados comportamientos de la estructura principal de las clases y aplicar polimorfismo.
 
 🚚 Despachable
 
 La interfaz Despachable representa el comportamiento asociado al despacho de un pedido.
 
-Las clases que implementan esta interfaz deben definir el método correspondiente al despacho.
-
-Se utiliza mediante:
+Las clases que implementan esta interfaz deben definir el método correspondiente al despacho utilizando:
 
 implements Despachable
 ❌ Cancelable
@@ -133,7 +133,7 @@ La interfaz Cancelable representa el comportamiento asociado a la cancelación d
 
 Permite establecer un comportamiento común para los pedidos que pueden ser cancelados.
 
-Las clases que implementan esta interfaz deben definir el método correspondiente a la cancelación.
+Las clases que implementan esta interfaz deben proporcionar la implementación correspondiente utilizando @Override.
 
 📍 Rastreable
 
@@ -141,7 +141,7 @@ La interfaz Rastreable representa el comportamiento asociado al seguimiento o ra
 
 Permite establecer un comportamiento común para los pedidos cuyo estado o ubicación puede ser consultado.
 
-Las clases que implementan esta interfaz deben definir el método correspondiente al rastreo.
+Las clases que implementan esta interfaz deben proporcionar la implementación correspondiente utilizando @Override.
 
 🖥️ Main
 
@@ -157,7 +157,7 @@ Utilizar referencias de tipo Pedido.
 Utilizar los comportamientos definidos mediante interfaces.
 Ejecutar el método mostrarResumen().
 Ejecutar el método calcularTiempoEntrega().
-Ejecutar los métodos asociados al despacho, cancelación y rastreo.
+Ejecutar los métodos relacionados con despacho, cancelación y rastreo.
 Mostrar en consola el tiempo estimado de cada pedido.
 Comprobar el comportamiento polimórfico de los diferentes tipos de pedidos.
 🔹 Método abstracto
@@ -196,27 +196,32 @@ Pedido pedido = new PedidoComida(...);
 
 Aunque la referencia es de tipo Pedido, el método calcularTiempoEntrega() ejecutado corresponde a la implementación de la clase PedidoComida.
 
-También se utiliza polimorfismo mediante las interfaces, permitiendo trabajar con objetos según el comportamiento que implementan, independientemente de su tipo específico.
+De esta forma, una misma referencia de tipo Pedido puede utilizarse para trabajar con diferentes tipos de pedidos.
 
-De esta manera, una misma interfaz puede ser utilizada para trabajar con diferentes clases de pedidos que compartan un determinado comportamiento.
+También se aplica polimorfismo mediante las interfaces, permitiendo trabajar con objetos según los comportamientos que implementan.
 
 🔌 Implementación de interfaces
 
-Las interfaces permiten agregar comportamientos específicos a las clases sin necesidad de establecer una relación de herencia entre ellas.
-
-En este proyecto se utilizan:
+Las interfaces utilizadas en el proyecto son:
 
 Despachable
 Cancelable
 Rastreable
 
-Estas interfaces permiten representar diferentes acciones que pueden realizar los pedidos de SpeedFast.
+Estas permiten incorporar comportamientos específicos a los pedidos.
 
-Cada clase que implementa una interfaz debe proporcionar la implementación de los métodos definidos en ella utilizando @Override.
+Las clases que implementan una interfaz utilizan la palabra reservada:
+
+implements
+
+y deben sobrescribir los métodos definidos por la interfaz utilizando:
+
+@Override
+
+Esto permite que diferentes clases puedan compartir determinados comportamientos sin necesidad de pertenecer a una misma jerarquía de herencia para cada uno de ellos.
 
 ▶️ Instrucciones para ejecutar el proyecto
 Clonar el repositorio desde GitHub.
-Link https://github.com/cpintomartinezsoc-cmyk/Poo2Sumativa1.git
 Abrir el proyecto en IntelliJ IDEA.
 Verificar que todas las clases se encuentren organizadas en sus respectivos paquetes.
 Ejecutar la clase:
@@ -229,6 +234,6 @@ Verificar el funcionamiento de las interfaces implementadas.
 
 Repositorio: POO2ActividadS2
 
-https://github.com/cpintomartinezsoc-cmyk/Poo2Sumativa1.git
+https://github.com/cpintomartinezsoc-cmyk/Poo2Actividad2.git
 
 Fecha de entrega: 31/08/2026
