@@ -216,6 +216,7 @@ Cada clase que implementa una interfaz debe proporcionar la implementación de l
 
 ▶️ Instrucciones para ejecutar el proyecto
 Clonar el repositorio desde GitHub.
+Link https://github.com/cpintomartinezsoc-cmyk/Poo2Sumativa1.git
 Abrir el proyecto en IntelliJ IDEA.
 Verificar que todas las clases se encuentren organizadas en sus respectivos paquetes.
 Ejecutar la clase:
@@ -228,6 +229,6 @@ Verificar el funcionamiento de las interfaces implementadas.
 
 Repositorio: POO2ActividadS2
 
-https://github.com/cpintomartinezsoc-cmyk/Poo2Actividad2.git
+https://github.com/cpintomartinezsoc-cmyk/Poo2Sumativa1.git
 
 Fecha de entrega: 31/08/2026
